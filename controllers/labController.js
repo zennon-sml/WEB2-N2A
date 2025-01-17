@@ -26,9 +26,9 @@ exports.createLab = async (req, res) => {
   }
 
   try {
-    const laboratorio = new Lab ({ name, description, capacity, picture });
-    await laboratorio.save();
-    res.status(201).json({ message: 'Laboratório criado com sucesso', laboratorio });
+    const lab = new Lab ({ name, description, capacity, picture });
+    await lab.save();
+    res.status(201).json({ message: 'Laboratório criado com sucesso', lab });
   } catch (error) {
     res.status(500).json({ message: 'Erro ao criar laboratório', error });
   }

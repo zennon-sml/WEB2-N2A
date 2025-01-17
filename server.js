@@ -3,10 +3,13 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const authRoutes = require('./routes/authRoutes')
 const labRoutes = require('./routes/labRoutes')
+const weekdayMiddleware = require('./middlewares/weekdayMiddleware')
 
 dotenv.config()
 
 const app = express()
+
+app.use(weekdayMiddleware)
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB successfully'))
