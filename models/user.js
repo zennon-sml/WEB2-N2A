@@ -14,6 +14,6 @@ UserSchema.pre('save', async function (next) {
     next()
 })
 
-const User = mongoose.model('web2users', UserSchema, 'web2users'); // Specify the collection explicitly
+const User = mongoose.model('User', UserSchema, 'users'); // Specify the collection explicitly
 
 module.exports = User
