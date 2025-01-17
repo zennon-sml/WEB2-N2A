@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const authRoutes = require('./routes/authRoutes')
+const labRoutes = require('./routes/labRoutes')
 
 dotenv.config()
 
@@ -20,7 +21,7 @@ app.get('/', (req, res) => {
     res.send('Api now online')
 })
 app.use('/api', authRoutes)
-
+app.use('/api', labRoutes)
 const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => {
