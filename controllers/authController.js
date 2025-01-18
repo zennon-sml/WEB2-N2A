@@ -20,9 +20,9 @@ exports.loginUser = async (req, res) => {
             return res.status(401).json({ message: 'Credenciais erradas'})
         }
         
-        const token = jwt.sign({ id: user._id}, process.env.JWT_SECRET, {expiresIn: '1m'})
+        const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET, {expiresIn: '1m'})
         
-        res.status(200).json({ token })
+        res.status(200).json({ token: 'Bearer ' + token })
     } catch (error) {
         res.status(500).json({ message: 'Server error', error })
     }
