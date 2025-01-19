@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGO_URI)
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.send('Api now online')
+    res.send('Api rodando e ligeira viu')
 })
 app.use('/api', authRoutes)
 app.use('/api', labRoutes)
