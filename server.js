@@ -9,7 +9,7 @@ dotenv.config()
 
 const app = express()
 
-app.use(weekdayMiddleware)
+//app.use(weekdayMiddleware)
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB successfully'))
