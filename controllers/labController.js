@@ -41,7 +41,7 @@ exports.generateReport = async (req, res) => {
         const labs = await Lab.find()
 
         const doc = new PDFDocument()
-        const filePath = path.join(__dirname, '..', 'uploads', 'relatorio.pdf')
+        const filePath = path.join(__dirname, '..', 'var/task/uploads', 'relatorio.pdf')
         
         const writeStream = fs.createWriteStream(filePath)
         doc.pipe(writeStream)
