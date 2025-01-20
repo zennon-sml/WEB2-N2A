@@ -9,7 +9,7 @@ dotenv.config()
 
 const app = express()
 
-//app.use(weekdayMiddleware)
+app.use(weekdayMiddleware)
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB successfully'))
@@ -20,12 +20,11 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use(express.json())
 
-app.get('/', (req, res) => {
-    res.send('Api rodando e ligeira viu')
-})
 app.use('/api', authRoutes)
 app.use('/api', labRoutes)
+
 const PORT = process.env.PORT || 5000
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
