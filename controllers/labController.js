@@ -7,7 +7,7 @@ const fs = require('fs')
 // Configurar armazenamento para uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const tempDir = '/tmp'; // Diretório temporário no serverless
+    const tempDir = './uploads'; // Diretório temporário no serverless
     cb(null, tempDir);
   },
   filename: (req, file, cb) => {
@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-exports.uploadMiddleware = upload.single('picture'); // Middleware de upload
+exports.uploadMiddleware = upload.single('picture'); 
 
 exports.createLab = async (req, res) => {
   const { name, description, capacity } = req.body;
@@ -65,6 +65,14 @@ exports.generateReport = async (req, res) => {
           doc.image(imagePath, { width: 150, height: 100 });
         }
       }
+      doc.moveDown();
+      doc.moveDown();
+      doc.moveDown();
+      doc.moveDown();
+      doc.moveDown();
+      doc.moveDown();
+      doc.moveDown();
+      doc.moveDown();
       doc.moveDown();
     });
 

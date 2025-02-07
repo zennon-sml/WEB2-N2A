@@ -1,7 +1,7 @@
 const weekdayMiddleware = (req, res, next) => {
     const currentDay = new Date().getDay()
     
-    if(currentDay === 0 || currentDay === 5) {
+    if(currentDay === 0 || currentDay === 6) {
         return res.status(403).json({ message: 'Acesso permitido apenas em dias da semana'})
     }
     
