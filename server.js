@@ -34,3 +34,4 @@ app.listen(PORT, () => {
 //C.   Usando sensor de temperatura, monitore a temperatura de 1 laboratório em tempo real, para isso, use um simulador de hardware
 //D.   Ter uma rota ‘/temperaturaAtual’, que exibe a temperatura do laboratório naquele momento
 //E.    Ter uma rota ‘/ligarLuz’, que liga a luz de 1 laboratório, para isso, utilize um simulador de hardware
+//TODO A, B tomorrow

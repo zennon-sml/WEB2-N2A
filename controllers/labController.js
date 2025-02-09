@@ -95,3 +95,4 @@ exports.generateReport = async (req, res) => {
     res.status(500).json({ message: 'Erro ao gerar arquivo.', error });
   }
 };
+
