@@ -3,7 +3,7 @@ const path = require("path")
 
 exports.videoStream = (req, res) => {
     const range = req.headers.range
-    const videoPath = path.join(__dirname, "../puclic/picapau.mp4");
+    const videoPath = path.join(__dirname, "../public/picapau.mp4");
     const videoSize = fs.statSync(videoPath).size
 
     const chunkSize = 1 * 1e+6
