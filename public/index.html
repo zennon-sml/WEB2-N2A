@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video de apresentação da API</title>
+    <title>Monitor de Laboratórios</title>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-    <h2>Video de apresentação da API</h2>
-    <video src="http://localhost:5000/api/video" controls="true"></video>
+    <h1>Status dos Laboratórios</h1>
+    <div id="status"></div>
+
+    <script>
+        const socket = io();
+
+        socket.on('connect', () => {
+            console.log("Conectado ao servidor Socket.io");
+        });
+
+        socket.on('bloquearLab', (lab) => {
+            console.log(`Recebido bloqueio: ${lab}`);
+            const div = document.getElementById('status');
+            div.innerHTML += `<p>Laboratório ${lab} foi bloqueado!</p>`;
+        });
+    </script>
 </body>
 </html>

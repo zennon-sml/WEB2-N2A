@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Temperatura</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>Monitoramento de Temperatura do Laboratório</h1>
+    <p><strong>Temperatura Atual:</strong> <span id="temp">-</span>°C</p>
+
+    <script>
+        const socket = io();
+
+        socket.on('atualizarTemperatura', (temp) => {
+            document.getElementById('temp').innerText = temp;
+        });
+    </script>
+</body>
+</html>
