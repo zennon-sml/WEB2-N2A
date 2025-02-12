@@ -47,6 +47,7 @@ app.post('/bloquear/:lab', (req, res) => {
   io.emit('bloquearLab', lab);
   res.send(`Laboratório ${lab} bloqueado!`);
 });
+
 // Temperaturas
 app.post('/temperatura/:temp', (req, res) => {
   const { temp } = req.params;
@@ -60,6 +61,10 @@ io.on('connection', (socket) => {
       console.log('Usuário desconectado');
   });
 });
+
+app.get('/ligarluz', (req, res) => {
+  res.status(200).send("Ligado")
+})
 
 const PORT = process.env.PORT || 5000
 
