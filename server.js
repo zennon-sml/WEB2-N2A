@@ -18,7 +18,7 @@ const app = express()
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-      origin: "*",  // Permite conexões de qualquer origem (ajuste conforme necessário)
+      origin: "*",
       methods: ["GET", "POST"]
   }
 });
@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB successfully'))
   .catch((err) => {
     console.error('MongoDB connection error:', err.message);
-    process.exit(1); // Exit process if connection fails
+    process.exit(1)
 });
 
 app.use(express.json())
@@ -72,8 +72,3 @@ server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 
-//DONE A.    Ter uma rota GET para '/videoTutorial', que envia, usando stream um vídeo sobre como usar a API, o vídeo deve ter pelo menos 1 minuto de duração.
-//DONE B.    Ter uma rota POST para ‘/bloquear/:lab’, que envia um emit para o canal ‘bloquear(lab)’ para todos os clientes ouvintes desse canal, criar um frontend HTML + Javascript simples, apenas para mostrar na tela quando alguém bloquear um laboratório, todos os clientes desse HTML devem ver a mensagem que algum laboratório foi bloqueado.
-//DONE C.   Usando sensor de temperatura, monitore a temperatura de 1 laboratório em tempo real, para isso, use um simulador de hardware
-//DONE D.   Ter uma rota ‘/temperaturaAtual’, que exibe a temperatura do laboratório naquele momento
-//E.    Ter uma rota ‘/ligarLuz’, que liga a luz de 1 laboratório, para isso, utilize um simulador de hardware

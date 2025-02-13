@@ -14,7 +14,7 @@ exports.newTemp= async (req, res) => {
 
 exports.getTemp = async (req, res) => {
     try {
-        const latestTemp = await Temp.findOne().sort({ createdAt: -1 }); // Get the latest temp by sorting by createdAt descending
+        const latestTemp = await Temp.findOne().sort({ createdAt: -1 }); 
         if (!latestTemp) {
             return res.status(404).json({ message: "Nenhuma temperatura encontrada" });
         }

@@ -85,7 +85,6 @@ exports.generateReport = async (req, res) => {
           console.error(err);
           res.status(500).json({ message: 'Erro ao baixar arquivo.' });
         } else {
-          // Remover o arquivo temporário após o download
           fs.unlinkSync(filePath);
         }
       });
